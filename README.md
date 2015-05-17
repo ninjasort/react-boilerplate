@@ -12,6 +12,7 @@
 ## Features
 
 - Compiles jsx components using Babel
+- Creates browserify bundle
 - Gulp build to dist (dev and minified)
 - Compiles styling with SCSS and Bourbon
 - Includes bootstrap and font-awesome
