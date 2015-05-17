@@ -1,0 +1,23 @@
+{
+  "name": "react-boilerplate",
+  "version": "0.1.0",
+  "description": "Boilerplate for building React components.",
+  "main": "index.js",
+  "scripts": {
+    "watch": "gulp watch",
+    "build": "gulp"
+  },
+  "author": "Cameron J Roe <cameronjroe@gmail.com> (http://cameronjroe.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "babelify": "^6.1.1",
+    "browserify": "^10.2.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-rename": "^1.2.2",
+    "jshint-stylish": "^1.0.2",
+    "node-bourbon": "^4.2.2"
+  },
+  "dependencies": {
+    "react": "^0.13.3"
+  }
+}
