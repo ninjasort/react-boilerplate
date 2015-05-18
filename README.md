@@ -16,7 +16,3 @@
 - Gulp build to dist (dev and minified)
 - Compiles styling with SCSS and Bourbon
 - Includes bootstrap and font-awesome
-
-## Todo
-
-- [ ] copy assets during build
