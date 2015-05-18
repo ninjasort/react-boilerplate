@@ -18,7 +18,9 @@ var config = {
     stylesWatch: './src/styles/**/*.scss',
     stylesEntry: './src/styles/' + componentName + '.scss',
     componentWatch: './src/**/*.{jsx, js}',
-    componentEntry: './src/' + componentName + '.jsx'
+    componentEntry: './src/' + componentName + '.jsx',
+    assetsSrc: './src/assets/**/*',
+    assetsDest: './dist/assets'
 };
 
 /**
@@ -29,6 +31,14 @@ gulp.task('lint', function () {
     .pipe(react())
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
+});
+
+/**
+ * Assets
+ */
+gulp.task('assets', function () {
+  return gulp.src(config.assetsSrc)
+    .pipe(gulp.dest(config.assetsDest));
 });
 
 /**
@@ -73,7 +83,7 @@ gulp.task('build:npm', function () {
 /**
  * Default
  */
-gulp.task('default', ['lint','styles'], function () {
+gulp.task('default', ['lint', 'styles', 'assets'], function () {
   return browserify(config.componentEntry)
     .transform(babelify)
     .bundle()
