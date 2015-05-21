@@ -11,6 +11,7 @@
 
 ## Features
 
+- Lints js
 - Compiles jsx components using Babel
 - Creates browserify bundle
 - Gulp build to dist (dev and minified)
