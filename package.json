@@ -1,6 +1,6 @@
 {
   "name": "react-boilerplate",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A boilerplate for building react components. (ES6, Browserify, Gulp)",
   "main": "index.js",
   "scripts": {
