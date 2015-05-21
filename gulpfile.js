@@ -4,6 +4,7 @@
 var gulp       = require('gulp');
 var source     = require('vinyl-source-stream');
 var browserify = require('browserify');
+var watchify   = require('watchify');
 var babelify   = require('babelify');
 var server     = require('gulp-webserver');
 var sass       = require('gulp-sass');
@@ -20,14 +21,18 @@ var config = {
     componentWatch: './src/**/*.{jsx, js}',
     componentEntry: './src/' + componentName + '.jsx',
     assetsSrc: './src/assets/**/*',
-    assetsDest: './dist/assets'
+    assetsDest: './dist/assets',
+    bundleEntry: './src/app.jsx'
 };
 
 /**
  * Lint JS
  */
 gulp.task('lint', function () {
-  return gulp.src(config.componentEntry)
+  return gulp.src([
+      config.componentEntry,
+      config.bundleEntry
+    ])
     .pipe(babel())
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
@@ -71,8 +76,6 @@ gulp.task('build:styles', function () {
 gulp.task('build:npm', function () {
   return gulp.src(config.componentEntry)
     .pipe(babel())
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
     .pipe(rename(componentName + '.js'))
     .pipe(gulp.dest('dist'))
     .pipe(rename(componentName + '.min.js'))
@@ -84,15 +87,15 @@ gulp.task('build:npm', function () {
  * Default
  */
 gulp.task('default', ['lint', 'styles', 'assets'], function () {
-  return browserify(config.componentEntry)
-    .transform(babelify)
+  var w = watchify(
+        browserify(config.bundleEntry, {extensions: '.jsx'})
+      );
+    w.transform(babelify)
     .bundle()
     .on('error', function (err) {
       console.log(err.fileName, err.lineNumber, err.description);
     })
     .pipe(source('bundle.js'))
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
     .pipe(gulp.dest('dist'));
 });
 

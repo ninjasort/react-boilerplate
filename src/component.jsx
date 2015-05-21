@@ -1,20 +1,25 @@
-'use strict';
+import React from 'react';
 
-var React = require('react');
+class Component extends React.Component {
 
-var Component = React.createClass({
+  constructor(props) {
+    super(props);
+    this.state = {
+      quote: '“We shape our tools and thereafter our tools shape us”'
+    }
+  }
 
-  render: function () {
+  render() {
     return (
         <blockquote className="component">
-          <a href="https://twitter.com/home?status=“We shape our tools and thereafter our tools shape us” - Marshall McLuhan">
-          “We shape our tools and thereafter our tools shape us”
+          <a href="https://twitter.com/home?status=${this.state.quote} - Marshall McLuhan">
+          {this.state.quote}
           </a>
           - Marshall McLuhan
         </blockquote>
       );
   }
 
-});
+}
 
-React.render(<Component />, document.querySelector('.inject'));
+export default Component;
