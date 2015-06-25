@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "gulp watch",
+    "proto": "budo ./src/app.jsx:./dist/bundle.js --verbose --live | garnish",
     "build": "gulp"
   },
   "author": "Cameron J Roe <cameronjroe@gmail.com> (http://cameronjroe.com/)",
@@ -26,5 +27,10 @@
   },
   "dependencies": {
     "react": "^0.13.3"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
   }
 }
