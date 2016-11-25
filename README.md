@@ -1,19 +1,14 @@
 # react-boilerplate
 
-> A boilerplate for building react components. (ES6, Browserify, Gulp)
+> A boilerplate for building react components.
 
 ## Setup
 
 1. Clone the repo
-2. Run `npm install`
-3. Run `npm run watch`
-4. Open [http://localhost:8000](http://localhost:8000)
+2. Run `yarn`
+3. Run `ns`
+4. Open [http://localhost:3000](http://localhost:3000)
 
-## Features
-
-- Lints js
-- Compiles jsx components using Babel
-- Creates browserify bundle
-- Gulp build to dist (dev and minified)
-- Compiles styling with SCSS and Bourbon
-- Includes bootstrap and font-awesome
+- Uses webpack
+- Uses babel latest, stage-0, react presets
+- Uses postcss-loader, sass-loader
