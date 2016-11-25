@@ -9,6 +9,7 @@
 3. Run `ns`
 4. Open [http://localhost:3000](http://localhost:3000)
 
+## Features
 - Uses webpack
 - Uses babel latest, stage-0, react presets
 - Uses postcss-loader, sass-loader
