@@ -4,33 +4,38 @@
   "description": "A boilerplate for building react components. (ES6, Browserify, Gulp)",
   "main": "index.js",
   "scripts": {
-    "watch": "gulp watch",
-    "proto": "budo ./src/app.jsx:./dist/bundle.js --verbose --live | garnish",
-    "build": "gulp"
+    "start": "hjs-dev-server",
+    "build": "webpack"
   },
-  "author": "Cameron J Roe <cameronjroe@gmail.com> (http://cameronjroe.com/)",
+  "author": "Cameron Roe <cameronjroe@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "babelify": "^6.1.1",
-    "browserify": "^10.2.0",
-    "gulp": "^3.8.11",
-    "gulp-babel": "^5.1.0",
-    "gulp-concat": "^2.5.2",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.0.1",
-    "gulp-uglify": "^1.2.0",
-    "gulp-webserver": "^0.9.1",
-    "jshint-stylish": "^1.0.2",
-    "node-bourbon": "^4.2.2",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.2.1"
+  "babel": {
+    "presets": [
+      "latest",
+      "stage-0",
+      "react"
+    ]
   },
   "dependencies": {
-    "react": "^0.13.3"
+    "hjs-webpack": "^8.4.2",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   },
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
+  "devDependencies": {
+    "autoprefixer": "^6.5.3",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "css-loader": "^0.26.0",
+    "gh-pages-deploy": "^0.4.2",
+    "node-bourbon": "^4.2.2",
+    "postcss-loader": "^1.1.1",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   }
 }
